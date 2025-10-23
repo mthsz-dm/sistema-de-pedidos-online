@@ -1,16 +1,16 @@
 .footer {
-    position: fixed;
-    bottom: 0;
-    width: 80%;
-    left: 50%;
-    text-align: center;
-    transform: translateX(-50%);
-    padding: 1rem;
-    border-radius: 1rem;
-    margin-top: 2rem;
-    color: black;
+  position: fixed;
+  bottom: 0;
+  width: 80%;
+  left: 50%;
+  text-align: center;
+  transform: translateX(-50%);
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-top: 2rem;
+  color: black;
 }
 
 .footer h5 {
-    font-weight: 500;
+  font-weight: 500;
 }
