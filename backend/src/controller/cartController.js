@@ -17,7 +17,9 @@ async function addToCart(req, res) {
   try {
     const cartItem = await prisma.cartItem.create({
       data: {
-        productId: id,
+        product: {
+          connect: { id: id }
+        },
         quantity: quantity,
       },
     });

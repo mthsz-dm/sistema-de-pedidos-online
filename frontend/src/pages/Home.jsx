@@ -1,17 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Img from "../assets/img/desconto.png";
 import "../assets/css/Home.css";
 
-const products = [
-  { id: 1, name: "Mouse", price: "R$" + 69.99, stars: 5 },
-  { id: 2, name: "Teclado", price: "R$" + 49.99, stars: 4 },
-  { id: 3, name: "Monitor", price: "R$" + 199.99, stars: 4 },
-].map((s) => ({
-  ...s,
-}));
-
 function Home() {
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/products")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Produtos recebidos:", data);
+        setProducts(data)
+      }) 
+      .catch((err) => console.error(err));
+  }, []);
+  
   return (
     <>
       <div>
@@ -20,14 +25,14 @@ function Home() {
             <div className="itens-grid">
               {products.map((s) => (
                 <Link key={s.id} to={`/product/${s.id}`}>
-                <div className="card">
-                  <div className="card-body">
-                    <img src={Img} alt="produto" width="100px" />
-                    <p>{s.name}</p>
-                    <p>{"⭐".repeat(s.stars)}</p>
-                    <p>{s.price}</p>
+                  <div className="card">
+                    <div className="card-body">
+                      <img src={Img} alt="produto" width="100px" />
+                      <p>{s.name}</p>
+                      <p>{"⭐".repeat(s.stars)}</p>
+                      <p>{s.price}</p>
+                    </div>
                   </div>
-                </div>
                 </Link>
               ))}
             </div>

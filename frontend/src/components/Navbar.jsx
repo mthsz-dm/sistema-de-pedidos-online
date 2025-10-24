@@ -16,7 +16,7 @@ export default function Navbar(){
                         <a href="/">Home</a>
                     </li>
                     <li className = 'nav-link'>
-                        <a href=""><MdOutlineShoppingCart 
+                        <a href="/cart"><MdOutlineShoppingCart 
                         size={30}
                         /></a>
                     </li>
