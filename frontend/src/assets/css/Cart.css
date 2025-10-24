@@ -1,0 +1,7 @@
+.container-cart {
+  margin-top: 100px;
+  display: flex;
+  align-items: flex-start;
+  gap: 200px;
+  padding: 150px;
+}
