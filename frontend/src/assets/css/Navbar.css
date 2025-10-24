@@ -9,6 +9,14 @@
   color:white
 }
 
+.navbar a{
+    color:white
+}
+
+a:hover{
+    color:rgb(141, 133, 133)
+}
+
 .navbar .container {
   display: flex;
   justify-content: center;

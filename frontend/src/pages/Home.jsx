@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Img from "../assets/img/desconto.png";
-import "../assets/css/App.css";
+import "../assets/css/Home.css";
 
 const produtos = [
   { id: 1, name: "Mouse", price: "R$" + 69.99, stars: 5 },
