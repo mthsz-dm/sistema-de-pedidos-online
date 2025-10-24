@@ -13,11 +13,11 @@ async function getCart(req, res) {
 }
 
 async function addToCart(req, res) {
-  const { productId, quantity } = req.body;
+  const { id, quantity } = req.body;
   try {
     const cartItem = await prisma.cartItem.create({
       data: {
-        productId: productId,
+        productId: id,
         quantity: quantity,
       },
     });

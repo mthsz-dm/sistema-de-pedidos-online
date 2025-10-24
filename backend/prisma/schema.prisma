@@ -9,7 +9,7 @@ generator client {
 
 model Product {
   id        Int        @id @default(autoincrement())
-  name      String
+  name      String     @unique
   price     Float
   stars     Int
   cartItems CartItem[]
