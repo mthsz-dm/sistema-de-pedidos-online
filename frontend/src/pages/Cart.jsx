@@ -17,10 +17,9 @@ function Cart() {
 
   return (
     <div className="container-cart">
-      <div>
+      <div className="box">
         {carts.map((s) => (
           <div key={s.id}>
-            <p>ID do item: {s.id}</p>
             <p>Produto: {s.product.name}</p>
             <p>Quantidade: {s.quantity}</p>
             <p>Preço: R$ {s.product.price}</p>
@@ -28,7 +27,7 @@ function Cart() {
           </div>
         ))}
       </div>
-      <div>
+      <div className="box">
         <h2>Preço Total: R$ {totPrice.toFixed(2)}</h2>
         <button>Confirmar Compra</button>
       </div>

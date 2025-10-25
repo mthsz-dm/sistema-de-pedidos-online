@@ -5,3 +5,16 @@
   gap: 200px;
   padding: 150px;
 }
+
+.box{
+    padding:100px;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    text-align: left;
+}
+
+.box p {
+    margin: 10px;
+}

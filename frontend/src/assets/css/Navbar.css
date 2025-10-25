@@ -13,6 +13,10 @@
     color:white
 }
 
+.navbar input {
+    color:black
+}
+
 a:hover{
     color:rgb(141, 133, 133)
 }
