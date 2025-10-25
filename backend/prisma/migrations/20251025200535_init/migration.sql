@@ -3,7 +3,8 @@ CREATE TABLE "Product" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "name" TEXT NOT NULL,
     "price" REAL NOT NULL,
-    "stars" INTEGER NOT NULL
+    "stars" INTEGER NOT NULL,
+    "imageUrl" TEXT
 );
 
 -- CreateTable
@@ -13,3 +14,6 @@ CREATE TABLE "CartItem" (
     "quantity" INTEGER NOT NULL,
     CONSTRAINT "CartItem_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Product" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Product_name_key" ON "Product"("name");

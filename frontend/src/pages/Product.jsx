@@ -38,7 +38,7 @@ function Product() {
     <>
       <div className="container-product">
         <div>
-          <img src={Img} alt={product.name} />
+          <img src={`http://localhost:3000${product.imageUrl}`} />
         </div>
         <div>
           <h1>{product.name}</h1>

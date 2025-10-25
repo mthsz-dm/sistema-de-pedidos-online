@@ -16,7 +16,7 @@ function Home({ search }) {
   const filterProducts = products.filter((p) =>
     p.name.toLowerCase().includes(search.toLowerCase())
   );
-  
+
   return (
     <>
       <div>
@@ -26,7 +26,7 @@ function Home({ search }) {
               <Link key={s.id} to={`/product/${s.id}`}>
                 <div className="card">
                   <div className="card-body">
-                    <img src={Img} alt="produto" width="100px" />
+                    <img src={`http://localhost:3000${s.imageUrl}`} />
                     <p>{s.name}</p>
                     <p>{"⭐".repeat(s.stars)}</p>
                     <p>{s.price}</p>

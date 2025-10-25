@@ -12,6 +12,7 @@ model Product {
   name      String     @unique
   price     Float
   stars     Int
+  imageUrl  String?
   cartItems CartItem[]
 }
 
