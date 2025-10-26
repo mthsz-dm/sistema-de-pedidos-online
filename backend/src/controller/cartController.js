@@ -18,7 +18,7 @@ async function addToCart(req, res) {
     const cartItem = await prisma.cartItem.create({
       data: {
         product: {
-          connect: { id: id }
+          connect: { id: id },
         },
         quantity: quantity,
       },
@@ -29,4 +29,33 @@ async function addToCart(req, res) {
   }
 }
 
-module.exports = { getCart, addToCart };
+async function deleteItem(req, res) {
+  try {
+    const { id } = req.params;
+    const cartItem = await prisma.cartItem.delete({
+      where: { id: Number(id) },
+    });
+
+    console.log("Item deletado:", cartItem);
+    res.json(cartItem);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+}
+
+async function updateItem(req, res) {
+  try {
+    const { id } = req.params;
+    const {quantity} = req.body;
+    const cartItem = await prisma.cartItem.update({
+      where: { id: Number(id) },
+      data: {quantity: Number(quantity)},
+      include: { product: true }, 
+    });
+    res.json(cartItem);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+}
+
+module.exports = { getCart, addToCart, deleteItem, updateItem };

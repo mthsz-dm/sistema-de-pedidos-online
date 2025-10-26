@@ -30,10 +30,10 @@ function Product() {
       .then((res) => res.json())
       .then((data) => {
         alert("Produto adicionado ao carrinho!");
-        navigate("/cart"); 
       })
       .catch((err) => console.error(err));
   };
+
   return (
     <>
       <div className="container-product">
@@ -47,25 +47,28 @@ function Product() {
           <div className="dropdown">
             <button className="dropbtn btn-produto">
               Quantidade: {qtd}
-              <i class="fa fa-caret-down"></i>
+              <i className="fa fa-caret-down"></i>
             </button>
             <div className="dropdown-content">
-              <a href="#" onClick={() => setQtd(1)}>
-                1
-              </a>
-              <a href="#" onClick={() => setQtd(2)}>
-                2
-              </a>
-              <a href="#" onClick={() => setQtd(3)}>
-                3
-              </a>
+              {[...Array(10).keys()].map((i) => (
+                <a
+                  key={i + 1}
+                  onClick={() => {
+                    setQtd(i + 1);
+                  }}
+                >
+                  {i + 1}
+                </a>
+              ))}
             </div>
           </div>
-          <button className="btn-produto" onClick={addToCart}>
-            Adicionar para carrinho
-          </button>
-          <button className="btn-produto" onClick={addToCart}>Comprar agora</button>
         </div>
+        <button className="btn-produto" onClick={addToCart}>
+          Adicionar para carrinho
+        </button>
+        <button className="btn-produto" onClick={addToCart}>
+          Comprar agora
+        </button>
       </div>
     </>
   );

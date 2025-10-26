@@ -1,5 +1,5 @@
 .container-cart {
-  margin-top: 100px;
+  margin-top: 10px;
   display: flex;
   align-items: flex-start;
   gap: 200px;
@@ -9,8 +9,9 @@
 .box{
     padding:100px;
     width: auto;
+    margin-bottom:10px ;
     border-radius: 10px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.11);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
     text-align: left;
 }

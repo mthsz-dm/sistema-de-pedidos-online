@@ -8,7 +8,7 @@ export default function Navbar({search, setSearch}) {
     <nav className="navbar">
       <div className="container">
         <ul className="navbar-nav left">
-          <h2>Online Order Sistem</h2>
+          <a href="/"><h2>Online Order Sistem</h2></a>
           <div className="espaco">
             <input
               type="text"
