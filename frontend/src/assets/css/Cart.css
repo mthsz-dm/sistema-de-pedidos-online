@@ -51,10 +51,11 @@
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  background-color: #17bb71;
 }
 
 .tot-box button:hover {
-  background-color: #8a8a8a;
+  background-color: #1CEB8E;
 }
 
 .remove-iten{

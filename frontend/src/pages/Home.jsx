@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Img from "../assets/img/desconto.png";
 import "../assets/css/Home.css";
 
 function Home({ search }) {
@@ -29,7 +28,7 @@ function Home({ search }) {
                     <img src={`http://localhost:3000${s.imageUrl}`} />
                     <p>{s.name}</p>
                     <p>{"⭐".repeat(s.stars)}</p>
-                    <p>{s.price}</p>
+                    <p>R${s.price}</p>
                   </div>
                 </div>
               </Link>

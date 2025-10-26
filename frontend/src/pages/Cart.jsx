@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "../assets/css/Cart.css";
+import Swal from "sweetalert2";
 
 function Cart() {
   const [carts, setCart] = useState([]);
@@ -12,15 +13,35 @@ function Cart() {
   }, []);
 
   const deleteItem = (id) => {
-    fetch(`http://localhost:3000/cart/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then(() => {
-        alert("Produto removido com sucesso!");
-        setCart((prev) => prev.filter((item) => item.id != id));
-      })
-      .catch((err) => console.error(err));
+    Swal.fire({
+      title: "Tem certeza?",
+      text: "Você não poderá desfazer essa ação!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sim, deletar!",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/cart/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then(() => {
+            setCart((prev) => prev.filter((item) => item.id !== id));
+            Swal.fire({
+              title: "Removido!",
+              text: "O produto foi removido do carrinho.",
+              icon: "success",
+              timer: 1500,
+              showConfirmButton: false,
+            });
+            window.location.reload();
+          })
+          .catch((err) => console.error(err));
+      }
+    });
   };
 
   const updateItem = (id, quantity) => {
@@ -31,10 +52,15 @@ function Cart() {
     })
       .then((res) => res.json())
       .then((updatedItem) => {
-        alert("Produto atualizado com sucesso!");
         setCart((prev) =>
           prev.map((item) => (item.id === updatedItem.id ? updatedItem : item))
         );
+        Swal.fire({
+          title: "Updated!",
+          text: `You updated the item!`,
+          icon: "success",
+          timer: 1500,
+        });
       })
       .catch((err) => console.error(err));
   };

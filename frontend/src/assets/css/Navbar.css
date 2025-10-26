@@ -1,24 +1,26 @@
 .navbar {
-  background-color: #333;
+  background-color: #1cbeeb;
   padding: 0.2rem 2rem;
   position: fixed;
   left: 0;
   top: 0;
   right: 0;
   z-index: 100;
-  color:white
+  color: white;
 }
 
-.navbar a{
-    color:white
+.navbar a {
+  color: white;
+  transition: background 0.2s, color 0.3s, box-shadow 0.2s;
 }
 
 .navbar input {
-    color:black
+  color: black;
 }
 
-a:hover{
-    color:rgb(141, 133, 133)
+.navbar a:hover {
+  color: #1c3beb;
+  transition: background 0.3s, color 0.3s, box-shadow 0.2s;
 }
 
 .navbar .container {

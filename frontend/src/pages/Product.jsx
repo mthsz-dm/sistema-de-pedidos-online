@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
-import Img from "../assets/img/desconto.png";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import "../assets/css/Product.css";
 
 function Product() {
   const { id } = useParams();
   const [qtd, setQtd] = useState(1);
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:3000/products")
@@ -28,8 +29,35 @@ function Product() {
       body: JSON.stringify({ id: product.id, quantity: qtd }),
     })
       .then((res) => res.json())
+      .then(() => {
+        Swal.fire({
+          title: "Thanks!",
+          text: `You add this ${product.name}!`,
+          icon: "success",
+          timer: 1500
+        });
+        setTimeout(() => {
+          window.location.reload();
+        }, 1400);
+      })
+      .catch((err) => console.error(err));
+  };
+
+  const buyNow = () => {
+    fetch("http://localhost:3000/cart", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: product.id, quantity: qtd }),
+    })
+      .then((res) => res.json())
       .then((data) => {
-        alert("Produto adicionado ao carrinho!");
+        Swal.fire({
+          title: "Thanks!",
+          text: `You add this ${product.name}!`,
+          icon: "success",
+          timer: 1500
+        });
+        navigate("/cart");
       })
       .catch((err) => console.error(err));
   };
@@ -62,10 +90,10 @@ function Product() {
               ))}
             </div>
           </div>
-          <button className="btn-produto" onClick={addToCart}>
+          <button className="btn-produto" id="continueBuy"onClick={addToCart}>
             Adicionar para carrinho
           </button>
-          <button className="btn-produto" onClick={addToCart}>
+          <button className="btn-produto" id="buyNow" onClick={buyNow}>
             Comprar agora
           </button>
         </div>

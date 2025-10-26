@@ -25,8 +25,8 @@
   color: black;
   background-color: white;
   margin: 0;
-  border-color: gray;
-  border-width: 3px;
+  border-color: black;
+  border-width: 2px;
 }
 .dropdown-content {
   display: none;
@@ -52,4 +52,25 @@
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+.container-product #buyNow {
+  background-color: #196bc9;
+  transition: background 0.2s, color 0.3s, box-shadow 0.2s;
+
+}
+.container-product #continueBuy {
+  background-color: #61ccea;
+  transition: background 0.2s, color 0.3s, box-shadow 0.2s;
+  color: black;
+}
+
+.container-product #continueBuy:hover {
+  background-color: #78e0fd;
+  transition: background 0.2s, color 0.3s, box-shadow 0.2s;
+}
+
+.container-product #buyNow:hover {
+  background-color: #1f88ff;
+  transition: background 0.2s, color 0.3s, box-shadow 0.2s;
 }
