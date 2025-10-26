@@ -1,14 +1,19 @@
 .btn-produto {
-  margin-bottom: 100px;
   width: 150px;
   height: 60px;
 }
 .container-product {
-  margin-top: 100px;
   display: flex;
   align-items: flex-start;
-  gap: 100px;
-  padding: 100px;
+  justify-content: space-between;
+  margin: 50px auto;
+  padding: 50px;
+  width: 50%;
+  gap: 40px;
+}
+
+.container-product img {
+  width: 20rem;
 }
 .dropdown {
   float: left;

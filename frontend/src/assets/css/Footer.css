@@ -1,14 +1,11 @@
 .footer {
   position: fixed;
-  bottom: 0;
-  width: 80%;
-  left: 50%;
-  text-align: center;
-  transform: translateX(-50%);
   padding: 1rem;
-  border-radius: 1rem;
-}
-
-.footer h5 {
-  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  background-color: #f0f0f0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }

@@ -1,21 +1,68 @@
 .container-cart {
-  margin-top: 10px;
   display: flex;
+  padding-top: 100px;
+  justify-content: space-between;
+  width: 75%;
+  margin: 50px auto;
   align-items: flex-start;
-  gap: 200px;
-  padding: 150px;
+  font-family: Arial, sans-serif;
+  gap: 100px;
 }
 
-.box{
-    padding:100px;
-    width: auto;
-    margin-bottom:10px ;
-    border-radius: 10px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.11);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    text-align: left;
+.products-box {
+  overflow-y: auto; 
+  padding: 15px;
+  border-radius: 12px;
+  background-color: #cecece;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.box p {
-    margin: 10px;
+.cart-box {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.cart-box img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.tot-box {
+  width: 30%;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.11);
+  background-color: #fff;
+  height: fit-content;
+}
+
+.tot-box button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.tot-box button:hover {
+  background-color: #8a8a8a;
+}
+
+.remove-iten{
+  color: rgb(185, 26, 26);
+  cursor: pointer;
+}
+
+.remove-iten:hover{
+  transition: background-color 0.2s ease;
+  color: rgb(255, 0, 0);
 }

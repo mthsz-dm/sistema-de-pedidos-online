@@ -45,42 +45,44 @@ function Cart() {
 
   return (
     <div className="container-cart">
-      <div className="box">
-        {carts.map((s) => (
-          <div key={s.id} className="box">
-            <img src={`http://localhost:3000${s.product.imageUrl}`} />
-            <p>Produto: {s.product.name}</p>
-            <p>Quantidade: {s.quantity}</p>
-            <div>
-              <button className="btn-produto" onClick={() => deleteItem(s.id)}>
-                Remover item
-              </button>
-              <div className="dropdown">
-                <button className="dropbtn btn-produto" type="button">
-                  Quantidade: {s.quantity}
-                  <i className="fa fa-caret-down"></i>
-                </button>
-                <div className="dropdown-content">
-                  {[...Array(10).keys()].map((i) => (
-                    <button
-                      type="button"
-                      key={i + 1}
-                      onClick={() => {
-                        updateItem(s.id, i + 1);
-                      }}
-                    >
-                      {i + 1}
-                    </button>
-                  ))}
+      <div className="products-column">
+        <div className="products-box">
+          {carts.map((s) => (
+            <div key={s.id} className="cart-box">
+              <img src={`http://localhost:3000${s.product.imageUrl}`} />
+              <p>{s.product.name}</p>
+              <div>
+                <div className="dropdown">
+                  <button className="dropbtn" type="button">
+                    Quantidade: {s.quantity}
+                    <i className="fa fa-caret-down"></i>
+                  </button>
+                  <div className="dropdown-content">
+                    {[...Array(10).keys()].map((i) => (
+                      <button
+                        type="button"
+                        key={i + 1}
+                        onClick={() => {
+                          updateItem(s.id, i + 1);
+                        }}
+                      >
+                        {i + 1}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
+              <br /> <br />
+              <p>Preço: R$ {s.product.price}</p>
+              <p>Subtotal: R$ {(s.product.price * s.quantity).toFixed(2)}</p>
+              <a onClick={() => deleteItem(s.id)} className="remove-iten">
+                Remover item
+              </a>
             </div>
-            <p>Preço: R$ {s.product.price}</p>
-            <p>Subtotal: R$ {(s.product.price * s.quantity).toFixed(2)}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-      <div className="box">
+      <div className="tot-box">
         <h2>Preço Total: R$ {totPrice.toFixed(2)}</h2>
         <button>Confirmar Compra</button>
       </div>

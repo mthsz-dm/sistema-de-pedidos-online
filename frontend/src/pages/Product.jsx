@@ -42,7 +42,7 @@ function Product() {
         </div>
         <div>
           <h1>{product.name}</h1>
-          <h2>{product.price}</h2>
+          <h2>R${product.price}</h2>
           <p>{"⭐".repeat(product.stars)}</p>
           <div className="dropdown">
             <button className="dropbtn btn-produto">
@@ -62,13 +62,13 @@ function Product() {
               ))}
             </div>
           </div>
+          <button className="btn-produto" onClick={addToCart}>
+            Adicionar para carrinho
+          </button>
+          <button className="btn-produto" onClick={addToCart}>
+            Comprar agora
+          </button>
         </div>
-        <button className="btn-produto" onClick={addToCart}>
-          Adicionar para carrinho
-        </button>
-        <button className="btn-produto" onClick={addToCart}>
-          Comprar agora
-        </button>
       </div>
     </>
   );
