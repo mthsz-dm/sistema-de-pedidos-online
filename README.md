@@ -1,10 +1,24 @@
 # sistema-de-pedidos-online
-Sistema web para realizar e gerenciar pedidos online, desenvolvido com React e node.js.
+This project is a web sistem to create and manage online orders, develop with React e node.js.
 
-# Como ultilizar o programa
+# How to use the program
 ## Frontend
-1. Abra o terminal
+1. Open the terminal
 2. cd frontend
 3. npm install
 4. npm run dev
-5. Pronto, o front da aplicação vai estar rodando
+5. The front is running
+
+## Backend
+1. Open the terminal
+2. cd backend
+3. npm install
+4. cd src
+5. node index.js
+
+## Data Base
+1. Open the terminal
+2. cd backend
+3. cd prisma
+4. npx prisma studio
+

@@ -16,12 +16,13 @@ async function getProductById(req, res) {
 
 async function createProduct(req, res) {
   try {
-    const { name, price, stars } = req.body;
+    const { name, description, price, stars } = req.body;
     const imageUrl = req.file ? `/images/${req.file.filename}` : null;
 
     const product = await prisma.product.create({
       data: {
         name,
+        description,
         price: parseFloat(price),
         stars: parseInt(stars),
         imageUrl,

@@ -27,6 +27,7 @@ function Home({ search }) {
                   <div className="card-body">
                     <img src={`http://localhost:3000${s.imageUrl}`} />
                     <p>{s.name}</p>
+                    <p>{s.description}</p><br />
                     <p>{"⭐".repeat(s.stars)}</p>
                     <p>R${s.price}</p>
                   </div>

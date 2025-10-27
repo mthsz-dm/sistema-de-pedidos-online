@@ -34,7 +34,7 @@ function Product() {
           title: "Thanks!",
           text: `You add this ${product.name}!`,
           icon: "success",
-          timer: 1500
+          timer: 1500,
         });
         setTimeout(() => {
           window.location.reload();
@@ -55,9 +55,12 @@ function Product() {
           title: "Thanks!",
           text: `You add this ${product.name}!`,
           icon: "success",
-          timer: 1500
+          timer: 1500,
         });
-        navigate("/cart");
+        setTimeout(() => {
+          navigate("/cart");
+          window.location.reload();
+        }, 1500);
       })
       .catch((err) => console.error(err));
   };
@@ -70,6 +73,7 @@ function Product() {
         </div>
         <div>
           <h1>{product.name}</h1>
+          <h2>{product.description}</h2>
           <h2>R${product.price}</h2>
           <p>{"⭐".repeat(product.stars)}</p>
           <div className="dropdown">
@@ -90,7 +94,7 @@ function Product() {
               ))}
             </div>
           </div>
-          <button className="btn-produto" id="continueBuy"onClick={addToCart}>
+          <button className="btn-produto" id="continueBuy" onClick={addToCart}>
             Adicionar para carrinho
           </button>
           <button className="btn-produto" id="buyNow" onClick={buyNow}>

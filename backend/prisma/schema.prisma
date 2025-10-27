@@ -8,12 +8,13 @@ generator client {
 }
 
 model Product {
-  id        Int        @id @default(autoincrement())
-  name      String     @unique
-  price     Float
-  stars     Int
-  imageUrl  String?
-  cartItems CartItem[]
+  id          Int        @id @default(autoincrement())
+  name        String     @unique
+  price       Float
+  stars       Int
+  imageUrl    String?
+  cartItems   CartItem[]
+  description String?
 }
 
 model CartItem {
