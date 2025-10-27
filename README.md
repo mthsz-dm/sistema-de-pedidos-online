@@ -49,18 +49,19 @@ This project is a web system to create and manage online orders, develop with Re
 4. npm run dev
 5. The front is running
 
+## Data Base (must be executed the before backend)
+1. Open the terminal
+2. cd backend
+3. cd prisma
+4. npx prisma generate
+5. npx prisma studio
+
 ## Backend
 1. Open the terminal
 2. cd backend
 3. npm install
 4. cd src
-5. node index.js
-
-## DataBase (optional)
-1. Open the terminal
-2. cd backend
-3. cd prisma
-4. npx prisma studio
+5. node index.js (must be executed the code after this action "npx prisma generate")
 
 # Usage
 1. Open the frontend in browser
