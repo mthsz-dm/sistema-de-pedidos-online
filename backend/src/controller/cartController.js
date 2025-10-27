@@ -46,11 +46,11 @@ async function deleteItem(req, res) {
 async function updateItem(req, res) {
   try {
     const { id } = req.params;
-    const {quantity} = req.body;
+    const { quantity } = req.body;
     const cartItem = await prisma.cartItem.update({
       where: { id: Number(id) },
-      data: {quantity: Number(quantity)},
-      include: { product: true }, 
+      data: { quantity: Number(quantity) },
+      include: { product: true },
     });
     res.json(cartItem);
   } catch (err) {
@@ -58,4 +58,13 @@ async function updateItem(req, res) {
   }
 }
 
-module.exports = { getCart, addToCart, deleteItem, updateItem };
+async function deleteAllItems(req, res) {
+  try {
+    const cartItem = await prisma.cartItem.deleteMany();
+    res.json({ message: `${cartItem.count} itens deletados` });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+}
+
+module.exports = { getCart, addToCart, deleteItem, updateItem, deleteAllItems };

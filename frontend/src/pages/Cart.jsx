@@ -65,6 +65,60 @@ function Cart() {
       .catch((err) => console.error(err));
   };
 
+  const confirmPurchase = async () => {
+    const { value: method } = await Swal.fire({
+      title: "Confirmar Compra",
+      html: `<select id="payment-method" class="swal2-select">
+             <option value="">Método Pagamento</option>
+             <option>Cartão</option>
+             <option>Boleto</option>
+             <option>PIX</option>
+           </select>`,
+      showCancelButton: true,
+      confirmButtonText: "Confirmar",
+      preConfirm: () => {
+        const val = Swal.getPopup().querySelector("#payment-method").value;
+        if (!val) Swal.showValidationMessage("Escolha um método de pagamento");
+        return val;
+      },
+    });
+
+    if (method) {
+      try {
+        await fetch("http://localhost:3000/cart", {
+          method: "DELETE",
+        });
+        setCart([]);
+        Swal.fire("Compra confirmada!", `Método: ${method}`, "success");
+      } catch (err) {
+        console.error(err);
+        Swal.fire("Erro!", "Não foi possível finalizar a compra", "error");
+      }
+    }
+  };
+
+    const deleteAllItems = async () => {
+    const { value: method } = await Swal.fire({
+      title: "Retirartodos os itens",
+      html: `<p>Tem certeza que quer tirar todos os itens do carrinho?</p>`,
+      showCancelButton: true,
+      confirmButtonText: "Confirmar",
+      icon: "question"
+    });
+    if (method) {
+      try {
+        await fetch("http://localhost:3000/cart", {
+          method: "DELETE",
+        });
+        setCart([]);
+        Swal.fire("Todos os itens retirados com sucesso!", "info");
+      } catch (err) {
+        console.error(err);
+        Swal.fire("Erro!", "Não foi possível retirar todo os itens", "error");
+      }
+    }
+  };
+
   const totPrice = carts.reduce((tot, item) => {
     return tot + item.product.price * item.quantity;
   }, 0);
@@ -110,7 +164,8 @@ function Cart() {
       </div>
       <div className="tot-box">
         <h2>Preço Total: R$ {totPrice.toFixed(2)}</h2>
-        <button>Confirmar Compra</button>
+        <button onClick={confirmPurchase}>Confirmar Compra</button>
+        <button onClick={deleteAllItems}>Delete</button>
       </div>
     </div>
   );
