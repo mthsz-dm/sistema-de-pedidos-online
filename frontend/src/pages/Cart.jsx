@@ -56,8 +56,8 @@ function Cart() {
           prev.map((item) => (item.id === updatedItem.id ? updatedItem : item))
         );
         Swal.fire({
-          title: "Updated!",
-          text: `You updated the item!`,
+          title: "Atualizado!",
+          text: `Você atualizou esse item!`,
           icon: "success",
           timer: 1500,
         });
@@ -177,7 +177,9 @@ function Cart() {
       <div className="tot-box">
         <h2>Preço Total: R$ {totPrice.toFixed(2)}</h2>
         <button onClick={confirmPurchase}>Confirmar Compra</button>
-        <button onClick={deleteAllItems} id="rm-item">Remover todos os itens</button>
+        <button onClick={deleteAllItems} id="rm-item">
+          Remover todos os itens
+        </button>
       </div>
     </div>
   );

@@ -8,10 +8,10 @@ async function getProducts(req, res) {
 
 async function getProductById(req, res) {
   const id = parseInt(req.params.id);
-  const product = await prisma.product.findUnique({ where: { id } });
-  if (!product)
+  const productId = await prisma.product.findUnique({ where: { id } });
+  if (!productId)
     return res.status(404).json({ error: "Produto não encontrado" });
-  res.json(product);
+  res.json(productId);
 }
 
 async function createProduct(req, res) {

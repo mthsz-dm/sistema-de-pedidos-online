@@ -5,12 +5,11 @@
   width: 75%;
   margin: 50px auto;
   align-items: flex-start;
-  font-family: Arial, sans-serif;
   gap: 100px;
 }
 
 .products-box {
-  overflow-y: auto; 
+  overflow-y: auto;
   padding: 15px;
   border-radius: 12px;
   background-color: #cecece;
@@ -46,7 +45,7 @@
 }
 
 .tot-box button {
-  width: 100%;
+  width: 80%;
   padding: 10px;
   border-radius: 6px;
   cursor: pointer;
@@ -55,7 +54,7 @@
 }
 
 .tot-box button:hover {
-  background-color: #1CEB8E;
+  background-color: #1ceb8e;
 }
 
 .tot-box #rm-item {
@@ -66,13 +65,12 @@
   background-color: #f01d1d;
 }
 
-
-.remove-iten{
+.remove-iten {
   color: rgb(185, 26, 26);
   cursor: pointer;
 }
 
-.remove-iten:hover{
+.remove-iten:hover {
   transition: background-color 0.2s ease;
   color: rgb(255, 0, 0);
 }

@@ -3,10 +3,10 @@ const prisma = new PrismaClient();
 
 async function getCart(req, res) {
   try {
-    const cart = await prisma.cartItem.findMany({
+    const cartProducts = await prisma.cartItem.findMany({
       include: { product: true },
     });
-    res.json(cart);
+    res.json(cartProducts);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -32,12 +32,10 @@ async function addToCart(req, res) {
 async function deleteItem(req, res) {
   try {
     const { id } = req.params;
-    const cartItem = await prisma.cartItem.delete({
+    const delCartItem = await prisma.cartItem.delete({
       where: { id: Number(id) },
     });
-
-    console.log("Item deletado:", cartItem);
-    res.json(cartItem);
+    res.json(delCartItem);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -47,12 +45,12 @@ async function updateItem(req, res) {
   try {
     const { id } = req.params;
     const { quantity } = req.body;
-    const cartItem = await prisma.cartItem.update({
+    const updCartItem = await prisma.cartItem.update({
       where: { id: Number(id) },
       data: { quantity: Number(quantity) },
       include: { product: true },
     });
-    res.json(cartItem);
+    res.json(updCartItem);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -60,8 +58,8 @@ async function updateItem(req, res) {
 
 async function deleteAllItems(req, res) {
   try {
-    const cartItem = await prisma.cartItem.deleteMany();
-    res.json({ message: `${cartItem.count} itens deletados` });
+    const delAllCartItem = await prisma.cartItem.deleteMany();
+    res.json(delAllCartItem.count);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

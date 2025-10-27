@@ -13,7 +13,6 @@ function Product() {
     fetch("http://localhost:3000/products")
       .then((res) => res.json())
       .then((data) => {
-        console.log("Produtos recebidos:", data);
         setProducts(data);
       })
       .catch((err) => console.error(err));
@@ -31,8 +30,8 @@ function Product() {
       .then((res) => res.json())
       .then(() => {
         Swal.fire({
-          title: "Thanks!",
-          text: `You add this ${product.name}!`,
+          title: "Obrigado!",
+          text: `Você adicionou o produto ${product.name}!`,
           icon: "success",
           timer: 1500,
         });
@@ -52,8 +51,8 @@ function Product() {
       .then((res) => res.json())
       .then((data) => {
         Swal.fire({
-          title: "Thanks!",
-          text: `You add this ${product.name}!`,
+          title: "Obrigado!",
+          text: `Você adicionou o produto ${product.name}!`,
           icon: "success",
           timer: 1500,
         });
