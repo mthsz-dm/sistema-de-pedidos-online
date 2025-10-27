@@ -63,6 +63,9 @@ function Cart() {
         });
       })
       .catch((err) => console.error(err));
+    setTimeout(() => {
+      window.location.reload();
+    }, 1500);
   };
 
   const confirmPurchase = async () => {
@@ -90,6 +93,9 @@ function Cart() {
         });
         setCart([]);
         Swal.fire("Compra confirmada!", `Método: ${method}`, "success");
+        setTimeout(() => {
+          window.location.reload();
+        }, 1600);
       } catch (err) {
         console.error(err);
         Swal.fire("Erro!", "Não foi possível finalizar a compra", "error");
@@ -97,13 +103,13 @@ function Cart() {
     }
   };
 
-    const deleteAllItems = async () => {
+  const deleteAllItems = async () => {
     const { value: method } = await Swal.fire({
       title: "Retirartodos os itens",
       html: `<p>Tem certeza que quer tirar todos os itens do carrinho?</p>`,
       showCancelButton: true,
       confirmButtonText: "Confirmar",
-      icon: "question"
+      icon: "question",
     });
     if (method) {
       try {
@@ -111,7 +117,13 @@ function Cart() {
           method: "DELETE",
         });
         setCart([]);
-        Swal.fire("Todos os itens retirados com sucesso!", "info");
+        Swal.fire({
+          title: "Todos os itens retirados com sucesso!",
+          icon: "info",
+        });
+        setTimeout(() => {
+          window.location.reload();
+        }, 1600);
       } catch (err) {
         console.error(err);
         Swal.fire("Erro!", "Não foi possível retirar todo os itens", "error");
@@ -165,7 +177,7 @@ function Cart() {
       <div className="tot-box">
         <h2>Preço Total: R$ {totPrice.toFixed(2)}</h2>
         <button onClick={confirmPurchase}>Confirmar Compra</button>
-        <button onClick={deleteAllItems}>Delete</button>
+        <button onClick={deleteAllItems} id="rm-item">Remover todos os itens</button>
       </div>
     </div>
   );

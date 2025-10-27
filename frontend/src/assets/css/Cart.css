@@ -58,6 +58,15 @@
   background-color: #1CEB8E;
 }
 
+.tot-box #rm-item {
+  background-color: #b90000;
+}
+
+.tot-box #rm-item:hover {
+  background-color: #f01d1d;
+}
+
+
 .remove-iten{
   color: rgb(185, 26, 26);
   cursor: pointer;
@@ -66,4 +75,44 @@
 .remove-iten:hover{
   transition: background-color 0.2s ease;
   color: rgb(255, 0, 0);
+}
+
+@media (max-width: 1024px) {
+  .container-cart {
+    flex-direction: column;
+    width: 90%;
+    gap: 30px;
+    padding-top: 80px;
+  }
+
+  .tot-box {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-cart {
+    padding-top: 150px;
+    gap: 20px;
+  }
+
+  .cart-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .cart-box img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .tot-box {
+    padding: 15px;
+  }
+
+  .tot-box button {
+    padding: 8px;
+    font-size: 14px;
+  }
 }

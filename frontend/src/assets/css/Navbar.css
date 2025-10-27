@@ -60,3 +60,35 @@ input {
   width: 250px;
   font-size: 14px;
 }
+
+@media (max-width: 768px) {
+  .navbar .navbar-nav {
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-left: 0;
+  }
+
+  input {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .navbar a.nav-link {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar .navbar-nav {
+    gap: 0.5rem;
+  }
+
+  input {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+}
